@@ -4,9 +4,16 @@ from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
 # Título
-st.set_page_config(page_title="Meu Aniversário 🎉")
-st.title("🎂 Convite de Aniversário")
-st.write("Confirme sua presença abaixo:")
+st.set_page_config(page_title="🎉 Aniversário da Débora!")
+
+st.title("🎉 Você está convidado!")
+st.subheader("Aniversário da Débora 🎂")
+
+st.write("""
+Vai rolar meu aniversário e você é parte importante disso.
+Confirme sua presença abaixo para eu me organizar 😊
+""")
+
 
 # Autenticação Google
 scope = [
@@ -41,7 +48,12 @@ if enviar:
             obs,
             datetime.now().strftime("%d/%m/%Y %H:%M")
         ])
-        st.success("Resposta enviada! 🎉")
+
+        if presenca == "Sim":
+            st.success(f"🎉 Perfeito, {nome}! Te espero lá!")
+        else:
+            st.info(f"Ok, {nome}! Fica pra próxima 😊")
+
 
 
 
