@@ -14,8 +14,10 @@ scope = [
     "https://www.googleapis.com/auth/drive"
 ]
 
-creds = ServiceAccountCredentials.from_json_keyfile_name(
-    "credentials.json", scope
+creds = ServiceAccountCredentials.from_json_keyfile_dict(
+    st.secrets["google"], scope
+)
+
 )
 client = gspread.authorize(creds)
 
@@ -41,3 +43,4 @@ if enviar:
             datetime.now().strftime("%d/%m/%Y %H:%M")
         ])
         st.success("Resposta enviada! 🎉")
+
