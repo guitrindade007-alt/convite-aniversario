@@ -18,7 +18,6 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(
     st.secrets["google"], scope
 )
 
-)
 client = gspread.authorize(creds)
 
 sheet = client.open("Convites Aniversário").sheet1
@@ -43,4 +42,5 @@ if enviar:
             datetime.now().strftime("%d/%m/%Y %H:%M")
         ])
         st.success("Resposta enviada! 🎉")
+
 
