@@ -20,7 +20,7 @@ creds = ServiceAccountCredentials.from_json_keyfile_dict(
 
 client = gspread.authorize(creds)
 
-sheet = client.open("Convites Aniversário").sheet1
+sheet = client.openall()[0].sheet1
 
 # Formulário
 with st.form("formulario"):
@@ -42,5 +42,6 @@ if enviar:
             datetime.now().strftime("%d/%m/%Y %H:%M")
         ])
         st.success("Resposta enviada! 🎉")
+
 
 
